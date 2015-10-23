@@ -1,3 +1,13 @@
+# Note to self:
+#  Current implementation requires these homebrew packages to be
+#  installed so that the resiprocate configure script can be generated:
+#
+#   - autoconf
+#   - automake
+#   - libtool
+#   - pkg-config
+
+
 Pod::Spec.new do |s|
   s.name             = "resiprocate"
   s.version          = "1.10.0"
