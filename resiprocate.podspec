@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '7.0'
   s.requires_arc     = false
 
-  # s.dependency 'OpenSSL-Universal', '1.0.1.p'
+  s.dependency 'OpenSSL-Universal', '1.0.1.p'
 
   build_vars = <<-EOF
     DEVELOPER=`xcode-select -print-path`
