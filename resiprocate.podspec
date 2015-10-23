@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
       fi
 
       #{build_vars}
-      ./configure --with-ssl
+      ./configure
     fi
 
     # currently, xcodeproj does not correctly interpret .hxx files as headers.  Rename them. :(
@@ -91,7 +91,6 @@ Pod::Spec.new do |s|
     '-DHAVE_sockaddr_in_len',
     '-DSTDC_HEADERS',
     '-DTIME_WITH_SYS_TIME',
-    '-DUSE_SSL',
     '-DUSE_ARES'
    ]
 
@@ -134,26 +133,26 @@ Pod::Spec.new do |s|
       sss.header_mappings_dir = 'contrib/asio'
     end
 
-    ss.subspec 'srtp' do |sss|
-      sss.source_files = [
-        'contrib/srtp/srtp/*.c',
-        'contrib/srtp/tables/*.c',
-        'contrib/srtp/include/*.h',
-        'contrib/srtp/crypto/**/*.{h,c}'
-      ]
-      sss.exclude_files = [
-        'contrib/srtp/crypto/test/*.c',
-        'contrib/srtp/crypto/rng/rand_linux_kernel.c'
-      ]
-      sss.public_header_files = [
-        'contrib/srtp/include/*.h'
-      ]
-      sss.private_header_files = [
-        'contrib/srtp/include/*_priv.h'
-      ]
-      sss.header_dir = 'srtp'
-      sss.header_mappings_dir = 'contrib/srtp/include'
-    end
+    # ss.subspec 'srtp' do |sss|
+    #   sss.source_files = [
+    #     'contrib/srtp/srtp/*.c',
+    #     'contrib/srtp/tables/*.c',
+    #     'contrib/srtp/include/*.h',
+    #     'contrib/srtp/crypto/**/*.{h,c}'
+    #   ]
+    #   sss.exclude_files = [
+    #     'contrib/srtp/crypto/test/*.c',
+    #     'contrib/srtp/crypto/rng/rand_linux_kernel.c'
+    #   ]
+    #   sss.public_header_files = [
+    #     'contrib/srtp/include/*.h'
+    #   ]
+    #   sss.private_header_files = [
+    #     'contrib/srtp/include/*_priv.h'
+    #   ]
+    #   sss.header_dir = 'srtp'
+    #   sss.header_mappings_dir = 'contrib/srtp/include'
+    # end
 
 
     ss.subspec 'boost' do |sss|
@@ -173,7 +172,7 @@ Pod::Spec.new do |s|
     ss.subspec 'stack' do |sss|
       sss.source_files = [
         'resip/stack/*.{h,c}pp',
-        'resip/stack/ssl/*.{h,c}pp',
+        # 'resip/stack/ssl/*.{h,c}pp',
       ]
       sss.exclude_files = [
         'resip/stack/ssl/MacSecurity*.{h,c}pp',
@@ -184,7 +183,7 @@ Pod::Spec.new do |s|
       sss.dependency 'resiprocate/resip/stack'
       sss.source_files = [
         'resip/dum/*.{h,c}pp',
-        'resip/dum/ssl/*.{h,c}pp'
+        # 'resip/dum/ssl/*.{h,c}pp'
       ]
     end
   end
@@ -192,11 +191,11 @@ Pod::Spec.new do |s|
   s.subspec 'reflow' do |ss|
     ss.dependency 'resiprocate/rutil'
     ss.dependency 'resiprocate/reTurn'
-    ss.dependency 'resiprocate/contrib/srtp'
+    # ss.dependency 'resiprocate/contrib/srtp'
 
     ss.source_files = [
-      'reflow/*.{h,c}pp',
-      'reflow/dtls_wrapper/*.{h,c,hpp,cpp}'
+      'reflow/*.{h,c}pp'
+      # 'reflow/dtls_wrapper/*.{h,c,hpp,cpp}'
     ]
   end
 
@@ -220,7 +219,7 @@ Pod::Spec.new do |s|
     ss.source_files = [
       'rutil/*.{h,c,hpp,cpp}',
       'rutil/dns/*.{hpp,cpp}',
-      'rutil/ssl/*.{hpp,cpp}',
+      # 'rutil/ssl/*.{hpp,cpp}',
       'rutil/stun/*.{hpp,cpp}',
       'rutil/dns/ares/*.{c,h}'
     ]
@@ -228,7 +227,7 @@ Pod::Spec.new do |s|
     ss.public_header_files = [
       'rutil/*.{h,hpp}',
       'rutil/dns/*.hpp',
-      'rutil/ssl/*.hpp',
+      # 'rutil/ssl/*.hpp',
       'rutil/stun/*.hpp',
       'rutil/dns/ares/*.h'
     ]
