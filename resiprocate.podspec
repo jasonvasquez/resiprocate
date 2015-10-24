@@ -70,7 +70,7 @@ Pod::Spec.new do |s|
 
     # prepare boost
     if [ ! -d "contrib/boost" ]; then
-      curl -sL http://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2 | tar xjf - -C contrib
+      curl -sL https://s3.amazonaws.com/downloads.developertown.com/boost/boost_1_59_0.tar.gz | tar xzf - -C contrib
       mv contrib/boost_1_59_0 contrib/boost
     fi
   CMD
