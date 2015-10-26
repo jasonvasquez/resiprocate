@@ -69,6 +69,7 @@ Pod::Spec.new do |s|
     # fi
 
     # prepare boost
+    env > /tmp/debug.txt
     if [ ! -d "contrib/boost" ]; then
       curl -sL https://s3.amazonaws.com/downloads.developertown.com/boost/boost_1_59_0.tar.gz | tar xzf - -C contrib
       mv contrib/boost_1_59_0 contrib/boost
