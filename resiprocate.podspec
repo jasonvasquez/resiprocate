@@ -69,11 +69,11 @@ Pod::Spec.new do |s|
     # fi
 
     # prepare boost
-    env > /tmp/debug.txt
-    if [ ! -d "contrib/boost" ]; then
-      curl -sL https://s3.amazonaws.com/downloads.developertown.com/boost/boost_1_59_0.tar.gz | tar xzf - -C contrib
-      mv contrib/boost_1_59_0 contrib/boost
-    fi
+    # env > /tmp/debug.txt
+    # if [ ! -d "contrib/boost" ]; then
+    #   curl -sL https://s3.amazonaws.com/downloads.developertown.com/boost/boost_1_59_0.tar.gz | tar xzf - -C contrib
+    #   mv contrib/boost_1_59_0 contrib/boost
+    # fi
   CMD
 
   s.compiler_flags = [
@@ -159,14 +159,14 @@ Pod::Spec.new do |s|
     # end
 
 
-    ss.subspec 'boost' do |sss|
-      sss.public_header_files = [
-        'contrib/boost/**/*.{hpp,ipp,h}'
-      ]
+    # ss.subspec 'boost' do |sss|
+    #   sss.public_header_files = [
+    #     'contrib/boost/**/*.{hpp,ipp,h}'
+    #   ]
 
-      sss.header_dir = 'boost'
-      sss.header_mappings_dir = 'contrib/boost/boost'
-    end
+    #   sss.header_dir = 'boost'
+    #   sss.header_mappings_dir = 'contrib/boost/boost'
+    # end
 
   end
 
@@ -207,7 +207,7 @@ Pod::Spec.new do |s|
   s.subspec 'reTurn' do |ss|
     ss.dependency 'resiprocate/rutil'
     ss.dependency 'resiprocate/contrib/asio'
-    ss.dependency 'resiprocate/contrib/boost'
+    # ss.dependency 'resiprocate/contrib/boost'
 
     ss.source_files = [
       'reTurn/*.{hpp,cpp}',
