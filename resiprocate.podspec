@@ -61,12 +61,12 @@ Pod::Spec.new do |s|
     }
 
     # configure srtp
-    if [ ! -f contrib/srtp/config.status ]; then
-      cd contrib/srtp
-      #{build_vars}
-      ./configure
-      cd ../..
-    fi
+    # if [ ! -f contrib/srtp/config.status ]; then
+    #   cd contrib/srtp
+    #   #{build_vars}
+    #   ./configure
+    #   cd ../..
+    # fi
 
     # prepare boost
     if [ ! -d "contrib/boost" ]; then
@@ -134,28 +134,28 @@ Pod::Spec.new do |s|
       sss.header_mappings_dir = 'contrib/asio'
     end
 
-    ss.subspec 'srtp' do |sss|
-      sss.source_files = [
-        'contrib/srtp/srtp/*.c',
-        'contrib/srtp/tables/*.c',
-        'contrib/srtp/include/*.h',
-        'contrib/srtp/crypto/**/*.{h,c}'
-      ]
-      sss.exclude_files = [
-        'contrib/srtp/crypto/test/*.c',
-        'contrib/srtp/crypto/rng/rand_linux_kernel.c'
-      ]
-      sss.public_header_files = [
-        'contrib/srtp/include/*.h'
-      ]
-      sss.private_header_files = [
-        'contrib/srtp/include/*_priv.h',
-        'contrib/srtp/crypto/include/*.h'
-      ]
-      sss.header_dir = 'srtp'
-      sss.header_mappings_dir = 'contrib/srtp/include'
-      # sss.xcconfig = { 'HEADER_SEARCH_PATHS' => "$(SRCROOT)/Pods/Headers/blahabllah" }
-    end
+    # ss.subspec 'srtp' do |sss|
+    #   sss.source_files = [
+    #     'contrib/srtp/srtp/*.c',
+    #     'contrib/srtp/tables/*.c',
+    #     'contrib/srtp/include/*.h',
+    #     'contrib/srtp/crypto/**/*.{h,c}'
+    #   ]
+    #   sss.exclude_files = [
+    #     'contrib/srtp/crypto/test/*.c',
+    #     'contrib/srtp/crypto/rng/rand_linux_kernel.c'
+    #   ]
+    #   sss.public_header_files = [
+    #     'contrib/srtp/include/*.h'
+    #   ]
+    #   sss.private_header_files = [
+    #     'contrib/srtp/include/*_priv.h',
+    #     'contrib/srtp/crypto/include/*.h'
+    #   ]
+    #   sss.header_dir = '.'
+    #   sss.header_mappings_dir = '.'
+    #   # sss.xcconfig = { 'HEADER_SEARCH_PATHS' => "$(SRCROOT)/Pods/Headers/blahabllah" }
+    # end
 
 
     ss.subspec 'boost' do |sss|
@@ -194,7 +194,8 @@ Pod::Spec.new do |s|
   s.subspec 'reflow' do |ss|
     ss.dependency 'resiprocate/rutil'
     ss.dependency 'resiprocate/reTurn'
-    ss.dependency 'resiprocate/contrib/srtp'
+    ss.dependency 'libsrtp'
+    # ss.dependency 'resiprocate/contrib/srtp'
 
     ss.source_files = [
       'reflow/*.{h,c}pp',
