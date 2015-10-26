@@ -93,7 +93,8 @@ Pod::Spec.new do |s|
     '-DSTDC_HEADERS',
     '-DTIME_WITH_SYS_TIME',
     '-DUSE_SSL',
-    '-DUSE_ARES'
+    '-DUSE_ARES',
+    '-DTARGET_OS_IPHONE'
    ]
 
 
