@@ -177,6 +177,7 @@ Pod::Spec.new do |s|
     ss.subspec 'stack' do |sss|
       sss.source_files = [
         'resip/stack/*.{h,c}pp',
+        'resip/stack/gen/*.cpp',
         'resip/stack/ssl/*.{h,c}pp',
       ]
       sss.exclude_files = [
