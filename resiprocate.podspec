@@ -149,10 +149,12 @@ Pod::Spec.new do |s|
         'contrib/srtp/include/*.h'
       ]
       sss.private_header_files = [
-        'contrib/srtp/include/*_priv.h'
+        'contrib/srtp/include/*_priv.h',
+        'contrib/srtp/crypto/include/*.h'
       ]
       sss.header_dir = 'srtp'
       sss.header_mappings_dir = 'contrib/srtp/include'
+      # sss.xcconfig = { 'HEADER_SEARCH_PATHS' => "$(SRCROOT)/Pods/Headers/blahabllah" }
     end
 
 
