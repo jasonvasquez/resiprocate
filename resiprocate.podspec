@@ -124,17 +124,17 @@ Pod::Spec.new do |s|
   s.header_mappings_dir = '.'
 
   s.subspec 'contrib' do |ss|
-    ss.subspec 'asio' do |sss|
-      sss.source_files = [
-        'contrib/asio/**/*.{h,i}pp'
-      ]
+    # ss.subspec 'asio' do |sss|
+    #   sss.source_files = [
+    #     'contrib/asio/**/*.{h,i}pp'
+    #   ]
 
-      sss.public_header_files = [
-        'contrib/asio/**/*.hpp'
-      ]
+    #   sss.public_header_files = [
+    #     'contrib/asio/**/*.hpp'
+    #   ]
 
-      sss.header_mappings_dir = 'contrib/asio'
-    end
+    #   sss.header_mappings_dir = 'contrib/asio'
+    # end
 
     # ss.subspec 'srtp' do |sss|
     #   sss.source_files = [
@@ -208,7 +208,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'reTurn' do |ss|
     ss.dependency 'resiprocate/rutil'
-    ss.dependency 'resiprocate/contrib/asio'
+    # ss.dependency 'resiprocate/contrib/asio'
     # ss.dependency 'resiprocate/contrib/boost'
 
     ss.source_files = [
