@@ -130,7 +130,7 @@ Pod::Spec.new do |s|
       ]
 
       sss.public_header_files = [
-        'contrib/asio/**/*.hpp'
+        'contrib/asio/**/*.{h,i}pp'
       ]
 
       sss.header_mappings_dir = 'contrib/asio'
